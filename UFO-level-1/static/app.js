@@ -25,3 +25,7 @@ function findDate() {
     console.log(inputData.property('value'));var updatedTable = tableData.filter(sighting => sighting.datetime===inputData.property('value'))
     findData(updatedTable);
 }
+
+//event listener
+inputData.on('change', changeHandler)
+button.on('click', changeHandler)
