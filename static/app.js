@@ -3,9 +3,27 @@ var tableData = data;
 
 //Get references
 var tbody = d3.select('tbody')
+console.log(tableData);
+
+//Arrow function to append the tableData
+data.forEach(ufo) => {
+    var row = tbody.append('tr');
+    Object.values(ufo).forEach(value) => {
+        var cell = row.append('td');
+        cell.text(value);
+    });
+});
+
+var button = d3.select('filter-btn');
+button.on('click', function() {
+    d3.event.preventDefault(); // prevent page from refreshing
+    var inputData = d3.select('#datetime');
+    var inputValue = inputData.property('value');
+    console.log(inputValue);
+})
+
 var columns = ["datetime", "city", "state", "country", "shape", "comments"]
 var inputData = d3.select('#datetime')
-var button = d3.select('filter-btn')
 
 function findData(data) {
     tbody.text('')
