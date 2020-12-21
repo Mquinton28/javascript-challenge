@@ -1,9 +1,23 @@
 // from data.js
 var tableData = data;
 
-//Get references
-var tbody = d3.select('tbody')
+//Get references table
+var tbody = d3.select('tbody');
 console.log(tableData);
+
+var button = d3.select('#filter-btn-date');
+var inputField = d3.select('#datetime');
+
+varcityButton = d3.select('#filter-btn-city');
+varcityInput = d3.select('#cityname');
+
+varstatesubmitButtion = d3.select('#filter-btn-state');
+var stateInput = d3.select('#statename');
+
+var countrysubmitButtion = d3.select('#filter-btn-country');
+var countryInput = d3.select('#countryname');
+
+
 
 //Arrow function to append the tableData
 data.forEach(ufo) => {
@@ -15,12 +29,18 @@ data.forEach(ufo) => {
 });
 
 var button = d3.select('filter-btn');
+
 button.on('click', function() {
-    d3.event.preventDefault(); // prevent page from refreshing
+
+    // prevent page from refreshing
+    d3.event.preventDefault();
+
     var inputData = d3.select('#datetime');
+
     var inputValue = inputData.property('value');
+
     console.log(inputValue);
-})
+});
 
 var columns = ["datetime", "city", "state", "country", "shape", "comments"]
 var inputData = d3.select('#datetime')
