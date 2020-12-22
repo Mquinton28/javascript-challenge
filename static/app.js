@@ -2,7 +2,7 @@
 var tableData = data;
 
 //Get references table
-var tbody = d3.select('tbody');
+var tbody = d3.select('#target-table-display');
 console.log(tableData);
 
 var button = d3.select('#filter-btn-date');
@@ -17,20 +17,22 @@ var stateInput = d3.select('#statename');
 var countrysubmitButtion = d3.select('#filter-btn-country');
 var countryInput = d3.select('#countryname');
 
+var shapesubmitButtion = d3.select('#filter-btn-shape');
+var shapesInput = d3.select('#shapename');
+
 
 
 //Arrow function to append the tableData
-data.forEach(ufo) => {
+data.forEach(ufo => {
     var row = tbody.append('tr');
-    Object.values(ufo).forEach(value) => {
+    Object.values(ufo).forEach(([key,value]) => {
         var cell = row.append('td');
         cell.text(value);
     });
 });
 
-var button = d3.select('filter-btn');
-
 button.on('click', function() {
+    tbody.html('');
 
     // prevent page from refreshing
     d3.event.preventDefault();
@@ -40,22 +42,10 @@ button.on('click', function() {
     var inputValue = inputData.property('value');
 
     console.log(inputValue);
+
+    var inputArray = data.filter(one => one.datetime === inputElement);
+    
 });
-
-var columns = ["datetime", "city", "state", "country", "shape", "comments"]
-var inputData = d3.select('#datetime')
-
-function findData(data) {
-    tbody.text('')
-    data.forEach(function(sighting){
-        input_tr = tbody.append('tr')
-        Object.entries(sighting).forEach(function([key, vlaue]){
-            input_td = input_tr.append('td').text(value)
-        })
-    })
-}
-
-findData(tableData)
 
 // filter data to find date
 function findDate() {
