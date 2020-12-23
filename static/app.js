@@ -47,12 +47,44 @@ button.on('click', function() {
     
 });
 
-// filter data to find date
-function findDate() {
+inputArray.forEach((selection) => {
+    var row = tbody.append('tr');
+    Object.entries(selection).forEach(([key,value]) => {
+        var cell = row.append('td');
+        cell.text(value);
+    });
+});
+
+// Level 2
+cityButton.on('click', function() {
+    tbody.html('');
     d3.event.preventDefault();
-    console.log(inputData.property('value'));var updatedTable = tableData.filter(sighting => sighting.datetime===inputData.property('value'))
-    findData(updatedTable);
-}
+    console.log('You just clicked the filter by city button');
+    var cityInput = cityinputField.property('value');
+    console.log(cityInput);
+    var cityinputArray = data.filter(two => two.city === cityInput);
+    console.log(cityInputArray);
+    
+    cityinputArray.forEach((selects) => {
+    var brow = tbody.append('tr');
+    Object.entries(selects).forEach([key,value]) => {
+        var bcell = brow.append('td');
+        bcell.text(value);
+    }
+
+    });
+});
+
+stateButton.on('click', function() {
+    tbody.html('');
+    d3.event.preventDefault();
+    console.log('You just clicked the filter by state button');
+
+    var stateInput = stateinputField.property('value');
+    console.log(stateInput);
+    var stateinputArray = data.filter(three => three.state === stateInput);
+    console.log(stateinputArray);
+})
 
 //event listener
 inputData.on('change', changeHandler)
