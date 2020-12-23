@@ -84,7 +84,56 @@ stateButton.on('click', function() {
     console.log(stateInput);
     var stateinputArray = data.filter(three => three.state === stateInput);
     console.log(stateinputArray);
-})
+
+    // Display the html file and append it
+    stateinputArray.forEach((selectss) => {
+        var crow = tbody.append('tr');
+        Object.entries(selectss).forEach(([key,value]) => {
+            var ccell = crow.append('td');
+            ccell.text('value');
+        });
+    });
+});
+
+countryButton.on('click', function() {
+    tbody.html('');
+    d3.event.preventDefault();
+    console.log('You just clicked the filter by country button');
+
+    var countryInput = countryinputField.property('value');
+    console.log(countryInput);
+    var countryinputArray = data.filter(four => four.country === countryInput);
+    console.log(countryinputArray);
+
+    // Display the html file and append it
+    countryinputArray.forEach((selectss) => {
+        var drow = tbody.append('tr');
+        Object.entries(selectss).forEach(([key,value]) => {
+            var dcell = drow.append('td');
+            dcell.text('value');
+        });
+    });
+});
+
+shapeButton.on('click', function() {
+    tbody.html('');
+    d3.event.preventDefault();
+    console.log('You just clicked the filter by sshape button');
+
+    var shapeInput = shapeinputField.property('value');
+    console.log(stateInput);
+    var shapeinputArray = data.filter(five => five.shape === shapeInput);
+    console.log(shapeinputArray);
+
+    // Display the html file and append it
+    shapeinputArray.forEach((selectss) => {
+        var erow = tbody.append('tr');
+        Object.entries(selectss).forEach(([key,value]) => {
+            var ecell = erow.append('td');
+            ecell.text('value');
+        });
+    });
+});
 
 //event listener
 inputData.on('change', changeHandler)
