@@ -1,13 +1,7 @@
 // from data.js
-var tableData = data;
+var ufoData = data;
 
-<<<<<<< HEAD
 // select tbody frmo index.html
-=======
-//Get references table
-var tbody = d3.select('tbody');
-console.log(tableData);
->>>>>>> 07c0b6d4e1cbd1bad1fd0c68ee1e8b7e84f2282d
 
 tbody = d3.select("tbody")
 
@@ -17,44 +11,25 @@ tbody = d3.select("tbody")
 
 function displayData(data) {
 
-<<<<<<< HEAD
     tbody.text("")
 
     data.forEach(function (sighting) {
-=======
->>>>>>> 07c0b6d4e1cbd1bad1fd0c68ee1e8b7e84f2282d
 
         new_tr = tbody.append("tr")
 
-<<<<<<< HEAD
         Object.entries(sighting).forEach(function ([key, value]) {
 
             new_td = new_tr.append("td").text(value)
-=======
-//Arrow function to append the tableData
-data.forEach((ufo) => {
-    var row = tbody.append('tr');
-    Object.values(ufo).forEach((value) => {
-        var cell = row.append('td');
-        cell.text(value);
-    });
-});
-
-var filteredData = d3.select('filter-btn');
-
-filteredData.on('click', function() {
->>>>>>> 07c0b6d4e1cbd1bad1fd0c68ee1e8b7e84f2282d
 
         })
 
     })
 }
 
-displayData(tableData)
+displayData(ufoData)
 
 //select the user's input and the filter button
 
-<<<<<<< HEAD
 var dateInputText = d3.select("#datetime")
 
 var button = d3.select("filter-btn")
@@ -73,7 +48,7 @@ function clickSelect() {
 
     //create a new table showing only the filterd data
 
-    var new_table = tableData.filter(sighting => sighting.datetime === dateInputText.property("value"))
+    var new_table = ufoData.filter(sighting => sighting.datetime === dateInputText.property("value"))
 
     //display the new table
 
@@ -84,37 +59,3 @@ function clickSelect() {
 // event listener to handle change and click
 
 dateInputText.on("change", clickSelect)
-=======
-    var filteredData = tableData.filter(row => row.datetime === inputValue);
-
-    console.log(filteredData);
-
-});
-
-
-// var columns = ["datetime", "city", "state", "country", "shape", "comments"]
-// var inputData = d3.select('#datetime')
-
-// function findData(data) {
-//     tbody.text('')
-//     data.forEach(function(sighting){
-//         input_tr = tbody.append('tr')
-//         Object.entries(sighting).forEach(function([key, vlaue]){
-//             input_td = input_tr.append('td').text(value)
-//         })
-//     })
-// }
-
-// findData(tableData)
-
-// // filter data to find date
-// function findDate() {
-//     d3.event.preventDefault();
-//     console.log(inputData.property('value'));var updatedTable = tableData.filter(sighting => sighting.datetime===inputData.property('value'))
-//     findData(updatedTable);
-// }
-
-//event listener
-// inputData.on('change', changeHandler)
-// button.on('click', changeHandler)
->>>>>>> 07c0b6d4e1cbd1bad1fd0c68ee1e8b7e84f2282d
